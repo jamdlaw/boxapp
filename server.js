@@ -30,16 +30,14 @@ app.get('/',function(req,res){
         if(err){
             return console.log(err);
         } 
-        // if answer if found then increment the answer value
+        // if answer is found then increment the answer value
         if(typeof result[0] != 'undefined'){
-            var updateVal = result[0].people +=1;
             db.findById(result[0]._id , function(err,answer){
-                answer.people =  updateVal;
+                answer.people += 1;  
                 answer.save(function (err, answer,numAffected){
                        if(err){console.log('error updating the answer')};
                        renderAnswer(); 
                 });
-
             });            
         }
         else{
@@ -49,7 +47,6 @@ app.get('/',function(req,res){
                 renderAnswer();
           });  
         }
-        //renderAnswer();
     });
     function renderAnswer () {
     	//set our DB veriable
