@@ -1,65 +1,9 @@
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="horizBarChart.js"></script>
-
-<style>
-.chart-horiz .chart { width: 90% }
-.chart-horiz .chart li {
-  display: block;
-  height: 23px;
-  margin-top: 3px;
-  position: relative
-}
-
-.chart-horiz .chart li:before {
-  color: #fff;
-  content: attr(title);
-  left: 5px;
-  position: absolute
-}
-
-.chart-horiz .chart li.title:before {
-  color: black;
-  font-weight: bold;
-  left: 0
-}
-
-.chart-horiz .chart li:first-child { margin-top: 0 }
-
-.chart-horiz .chart li .bar {
-  background: #27ae60;
-  height: 100%;
-  min-width: 164px
-}
-
-.chart-horiz .chart li .number {
-  color: #27ae60;
-  font-size: 18px;
-  font-weight: bold;
-  padding-left: 5px;
-  position: absolute;
-  top: -3px
-}
-.chart-horiz .chart li.past .bar { background: #2ecc71 }
-.chart-horiz .chart li.past .number { color: #2ecc71 }
-
-
-</style>
-
-<!-- <div class="chart-horiz"> -->
-<ul class="chart">
-<li class="title" title="My Bar Chart"></li>
-<% for(var i=0; i<answers.length; i++) {%>
-   <li class="current"><span class="was-bar" data-number=<%= answers[i].people%>></span><span class="number"><%= answers[i].answer  + ' ' + answers[i].people    %></span></li>
-<% } %>
-</ul>
-<!-- </div> -->
-
-<script>
-	$(document).ready(function(){
-		$('.chart').horizBarChart({
-		  selector: '.bar',
-		  speed: 3000
-		});
-	});
-</script>
+<div> 
+  <h3> <%=title%> </h3>
+  <ul>
+  <% for(var i=0; i<answers.length; i++) {%>
+     <li class="current"></span><span class="number"><%= answers[i].answer  + ' ' + answers[i].people    %></li>
+  <% } %>
+  </ul>
+</div> 
