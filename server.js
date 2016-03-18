@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost/boxapp', function(err) {
 });
 
 app.get('/',function(req,res){
-	res.sendFile(path.join(__dirname + '/public/question.html'));
+	res.render(__dirname + '/public/question.ejs');
 })
 .post('/', function(req,res){
 	// get the text from the input
@@ -48,22 +48,21 @@ app.get('/',function(req,res){
           });  
         }
     });
-    function renderAnswer () {
+    function renderAnswer(){
     	//set our DB veriable
         var templateObj = {};
         db.find({}, function(err, result){ 
         var docArray = [];
         if (err || !result ) {console.log("an error has occurred or empty result"); return;}
         for(var key in result){
-                //console.log(result[myAnswer].answer);
                 docArray[key] = {'answer': result[key].answer, 'people':result[key].people};
             }
          templateObj = {
             title : "What others said", 
             answers: docArray
         };
-        res.render(__dirname + '/public/answers.ejs', templateObj );
-        });
+        res.render(__dirname + '/public/answers.ejs', templateObj);
+        }).sort();
     }
 });
 
