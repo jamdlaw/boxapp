@@ -7,7 +7,7 @@
      <% include head %>
 </head>
 <body>
-	<div> 
+	<div class="container"> 
 	  <div class="jubotron" >
 	  	<h1> <%=title%> </h1>
 	  </div>
@@ -16,5 +16,7 @@
 	     <li class="current"></span><span class="number"><%= answers[i].answer  + ' ' + answers[i].people    %></li>
 	  <% } %>
 	  </ul>
+	 <div class="push"> </div> 
 	</div>
+	<% include footer %>
 </body> 
