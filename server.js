@@ -51,24 +51,22 @@ app.get('/',function(req,res){
     function renderAnswer(){
     	//set our DB veriable
         var templateObj = {};
-        db.find({}, function(err, result){ 
+        var result = db.collection.find().sort({people:-1});
         var docArray = [];
-        if (err || !result ) {console.log("an error has occurred or empty result"); return;}
-        for(var key in result){
+        result.toArray(function(err,result){
+            for(var key in result){
                 docArray[key] = {'answer': result[key].answer, 'people':result[key].people};
             }
          templateObj = {
             title : "What others said", 
             answers: docArray
         };
+        //console.log(templateObj.answers);
         res.render(__dirname + '/public/answers.ejs', templateObj);
-        }).sort();
-    }
+        }
+    )};
 });
-
-
 app.listen(3000);
 console.log('Server is running at http://localhost:3000');
-
 // this is needed to be able to test the express app???
 module.exports = app;
