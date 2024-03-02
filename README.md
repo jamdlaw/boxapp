@@ -18,5 +18,5 @@
 ### Steps
 1. Clone the repository:
 ```bash
-git clone https://your-repository-url.git
-cd whats-in-the-box
+git clone https://github.com/jamdlaw/boxapp.git
+cd boxapp
