@@ -10,5 +10,8 @@
         "ejs": "3.1.8", 
         "mongoose": "6.5.1", 
         "mongodb": "4.8.1" 
+    },
+    "scripts":{
+     "dev":"nodemon server.js"    
     }
 }
