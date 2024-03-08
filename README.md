@@ -19,4 +19,6 @@
 1. Clone the repository:
 ```bash
 git clone https://github.com/jamdlaw/boxapp.git
-cd boxapp
+cd boxapp 
+npm run dev
+
